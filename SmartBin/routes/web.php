@@ -11,7 +11,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 
@@ -21,4 +21,4 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/bins/store', [UserController::class, 'storeBin'])->name('bins.store');
 
-});
+// });
