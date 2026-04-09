@@ -6,17 +6,35 @@
 
 <div class="row mt-4">
 
-    <div class="col-md-4">
-        <div class="card p-3 shadow">
-            <h5>Total Bins</h5>
-            <h3>0</h3>
+    <!-- TOTAL -->
+    <div class="col-md-3">
+        <div class="card p-3 shadow text-center">
+            <h6>Total Bins</h6>
+            <h2>{{ $totalBins }}</h2>
         </div>
     </div>
 
-    <div class="col-md-4">
-        <div class="card p-3 shadow">
-            <h5>Full Bins</h5>
-            <h3>0</h3>
+    <!-- EMPTY -->
+    <div class="col-md-3">
+        <div class="card p-3 shadow text-center border-success">
+            <h6>Empty Bins 🟢</h6>
+            <h2 class="text-success">{{ $emptyBins }}</h2>
+        </div>
+    </div>
+
+    <!-- HALF -->
+    <div class="col-md-3">
+        <div class="card p-3 shadow text-center border-warning">
+            <h6>Half Bins 🟡</h6>
+            <h2 class="text-warning">{{ $halfBins }}</h2>
+        </div>
+    </div>
+
+    <!-- FULL -->
+    <div class="col-md-3">
+        <div class="card p-3 shadow text-center border-danger">
+            <h6>Full Bins 🔴</h6>
+            <h2 class="text-danger">{{ $fullBins }}</h2>
         </div>
     </div>
 

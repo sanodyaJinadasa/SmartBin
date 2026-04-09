@@ -17,7 +17,8 @@ return new class extends Migration
             $table->decimal('latitude', 10, 7);
             $table->decimal('longitude', 10, 7);
             $table->string('address')->nullable();
-            $table->string('status')->default('empty'); // empty, half, full
+           $table->tinyInteger('status')->default(1)->comment('0=deleted, 1=empty, 2=half, 3=full');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

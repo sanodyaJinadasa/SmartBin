@@ -5,7 +5,7 @@
 <div class="text-center mt-5">
     <h1 class="fw-bold">🌱 Welcome to SmartBin</h1>
     <p class="mt-3 text-muted">
-        Smart Waste Management System for Cleaner Cities 🚀
+        Smart Waste Management System for Cleaner Cities 
     </p>
 
     <div>
@@ -54,3 +54,9 @@
 </div>
 
 @endsection
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif

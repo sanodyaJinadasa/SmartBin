@@ -13,18 +13,23 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-success">
     <div class="container">
-        <a class="navbar-brand" href="#">🌱 SmartBin</a>
+        <a class="navbar-brand" href="{{ route('home') }}">🌱 SmartBin</a>
 
         <div>
-            <a href="{{ route('dashboard') }}" class="btn btn-light btn-sm">Dashboard</a>
-            <a href="{{ route('bins') }}" class="btn btn-light btn-sm">Bins</a>
-            <a href="{{ route('bins.create') }}" class="btn btn-warning btn-sm">Add Bin</a>
+    @auth
+        <a href="{{ route('dashboard') }}" class="btn btn-light btn-sm">Dashboard</a>
+        <a href="{{ route('bins') }}" class="btn btn-light btn-sm">Bins</a>
+        <a href="{{ route('bins.create') }}" class="btn btn-warning btn-sm">Add Bin</a>
 
-            <form action="{{ route('logout') }}" method="POST" class="d-inline">
-                @csrf
-                <button class="btn btn-danger btn-sm">Logout</button>
-            </form>
-        </div>
+        <form action="{{ route('logout') }}" method="POST" class="d-inline">
+            @csrf
+            <button class="btn btn-danger btn-sm">Logout</button>
+        </form>
+    @else
+        <a href="{{ route('login') }}" class="btn btn-light btn-sm">Login</a>
+        <a href="{{ route('register') }}" class="btn btn-warning btn-sm">Register</a>
+    @endauth
+</div>
     </div>
 </nav>
 

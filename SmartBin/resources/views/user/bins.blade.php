@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.web')
 
 @section('content')
 
@@ -13,14 +13,37 @@
             <th>Location</th>
         </tr>
     </thead>
-    <tbody>
+  <tbody>
+    @forelse($bins as $bin)
         <tr>
-            <td>1</td>
-            <td>Plastic</td>
-            <td><span class="badge bg-success">Empty</span></td>
-            <td>Kurunegala</td>
+            <td>{{ $bin->id }}</td>
+            <td>{{ $bin->type }}</td>
+
+            <td>
+                @if($bin->status == 1)
+                    <span class="badge bg-success">Empty</span>
+                @elseif($bin->status == 2)
+                    <span class="badge bg-warning text-dark">Half</span>
+                @elseif($bin->status == 3)
+                    <span class="badge bg-danger">Full</span>
+                @else
+                    <span class="badge bg-secondary">Unknown</span>
+                @endif
+            </td>
+
+            <td>
+                {{ $bin->address }} <br>
+                <small class="text-muted">
+                    ({{ $bin->latitude }}, {{ $bin->longitude }})
+                </small>
+            </td>
         </tr>
-    </tbody>
+    @empty
+        <tr>
+            <td colspan="4" class="text-center">No bins found</td>
+        </tr>
+    @endforelse
+</tbody>
 </table>
 
 @endsection
