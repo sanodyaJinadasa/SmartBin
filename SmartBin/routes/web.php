@@ -12,11 +12,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/marketplace', [WasteSaleController::class, 'marketplace'])->name('marketplace');
 
 Route::middleware(['auth'])->group(function () {
-
-Route::middleware(['citizen'])->group(function () {
 
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 
@@ -26,7 +24,8 @@ Route::middleware(['citizen'])->group(function () {
 
     Route::post('/bins/store', [UserController::class, 'storeBin'])->name('bins.store');
 });
-});
+
+
 
 
 

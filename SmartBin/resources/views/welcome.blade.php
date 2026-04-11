@@ -13,6 +13,9 @@
         <a href="{{ route('dashboard') }}" class="btn btn-light btn-sm">Dashboard</a>
         <a href="{{ route('bins') }}" class="btn btn-light btn-sm">Bins</a>
         <a href="{{ route('bins.create') }}" class="btn btn-warning btn-sm">Add Bin</a>
+        <a href="{{ route('marketplace') }}" class="btn btn-dark ms-2">
+                ♻️ Buy Waste 
+            </a>
 
         <form action="{{ route('logout') }}" method="POST" class="d-inline">
             @csrf
