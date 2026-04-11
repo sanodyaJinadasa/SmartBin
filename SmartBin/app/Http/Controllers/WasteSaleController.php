@@ -1,20 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\WasteSale;
 use Illuminate\Http\Request;
+use Auth;
 
 class WasteSaleController extends Controller
 {
     public function index()
     {
         $wastes = WasteSale::where('user_id', Auth::id())->latest()->get();
-        return view('user.waste.index', compact('wastes'));
+        return view('user.wastelist', compact('wastes'));
     }
 
     public function create()
     {
-        return view('user.waste.create');
+        return view('user.wastesell');
     }
 
     public function store(Request $request)

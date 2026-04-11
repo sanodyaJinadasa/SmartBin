@@ -20,7 +20,9 @@
         <a href="{{ route('dashboard') }}" class="btn btn-light btn-sm">Dashboard</a>
         <a href="{{ route('bins') }}" class="btn btn-light btn-sm">Bins</a>
         <a href="{{ route('bins.create') }}" class="btn btn-warning btn-sm">Add Bin</a>
+       <a href="{{ route('waste.create') }}" class="btn btn-info btn-sm">♻️ Sell Waste</a>
 
+        <a href="{{ route('waste.index') }}" class="btn btn-secondary btn-sm">📋 My Waste</a>
         <form action="{{ route('logout') }}" method="POST" class="d-inline">
             @csrf
             <button class="btn btn-danger btn-sm">Logout</button>

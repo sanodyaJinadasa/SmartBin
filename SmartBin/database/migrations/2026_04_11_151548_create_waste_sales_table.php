@@ -16,10 +16,10 @@ return new class extends Migration
 
         $table->foreignId('user_id')->constrained()->onDelete('cascade');
 
-        $table->string('type'); // plastic, iron
+        $table->string('type');
         $table->decimal('quantity', 8, 2);
 
-        $table->string('mobile'); // contact number for buyers
+        $table->string('mobile');
 
         $table->text('description')->nullable();
 

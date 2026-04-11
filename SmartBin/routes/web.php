@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DriverController;
+use App\Http\Controllers\WasteSaleController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,6 +28,17 @@ Route::middleware(['citizen'])->group(function () {
 });
 });
 
+
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/waste', [WasteSaleController::class, 'index'])->name('waste.index');
+
+    Route::get('/waste/create', [WasteSaleController::class, 'create'])->name('waste.create');
+
+    Route::post('/waste/store', [WasteSaleController::class, 'store'])->name('waste.store');
+
+});
 
 
 
