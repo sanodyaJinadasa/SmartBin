@@ -12,12 +12,26 @@ return new class extends Migration
     public function up()
     {
         Schema::create('waste_sales', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('type'); // plastic, iron
-            $table->decimal('quantity', 8, 2); // kg
-            $table->string('image')->nullable();
-            $table->timestamps();
+         $table->id();
+
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+
+        $table->string('type'); // plastic, iron
+        $table->decimal('quantity', 8, 2);
+
+        $table->string('mobile'); // contact number for buyers
+
+        $table->text('description')->nullable();
+
+        $table->string('image')->nullable();
+
+        $table->string('address')->nullable();
+
+        $table->tinyInteger('status')
+            ->default(1)
+            ->comment('1=available, 2=requested, 3=sold, 0=deleted');
+
+        $table->timestamps();
         });
     }
 
