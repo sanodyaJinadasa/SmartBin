@@ -13,9 +13,15 @@ class WasteSaleController extends Controller
         return view('user.wastelist', compact('wastes'));
     }
 
-    public function marketplace()
+    public function marketplace(Request $request)
 {
-    $wastes = WasteSale::where('status', 1)->latest()->get();
+      $query = WasteSale::where('status', 1);
+
+    if ($request->search) {
+        $query->where('type', 'like', '%' . $request->search . '%');
+    }
+
+    $wastes = $query->latest()->get();
 
     return view('marketplace', compact('wastes'));
 }

@@ -13,6 +13,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/marketplace', [WasteSaleController::class, 'marketplace'])->name('marketplace');
+Route::get('/marketplace', [WasteSaleController::class, 'marketplace'])->name('marketplace');
 
 Route::middleware(['auth'])->group(function () {
 

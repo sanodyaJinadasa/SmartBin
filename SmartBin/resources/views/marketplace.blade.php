@@ -2,47 +2,109 @@
 
 @section('content')
 
-<h2 class="mb-4">♻️ Waste Marketplace</h2>
+<div class="container">
 
-<div class="row">
+    {{-- 🔍 SEARCH BAR --}}
+    <div class="d-flex align-items-center mb-4">
+        <input type="text" class="form-control me-2" placeholder="🔍 Search for waste...">
+        <button class="btn btn-outline-secondary">⚙️</button>
+    </div>
 
-@forelse($wastes as $w)
+    <p class="text-muted">{{ count($wastes) }} items found</p>
 
-    <div class="col-md-4 mb-4">
-        <div class="card shadow h-100">
+    <div class="row">
 
-            @if($w->image)
-                <img src="{{ asset('storage/'.$w->image) }}" class="card-img-top" style="height:200px; object-fit:cover;">
-            @endif
+        @foreach($wastes as $w)
+        <div class="col-md-4 mb-4">
 
-            <div class="card-body">
-                <h5>{{ $w->type }}</h5>
+            <div class="card border-0 shadow-sm overflow-hidden">
 
-                <p><strong>Quantity:</strong> {{ $w->quantity }} kg</p>
+                {{-- IMAGE --}}
+                <div style="height:200px; overflow:hidden;">
+                    @if($w->image)
+                        <img src="{{ asset('storage/'.$w->image) }}" 
+                             class="w-100 h-100"
+                             style="object-fit:cover;">
+                    @else
+                        <img src="https://via.placeholder.com/300" class="w-100 h-100">
+                    @endif
+                </div>
 
-                <p><strong>Location:</strong><br>{{ $w->address }}</p>
+                {{-- CONTENT --}}
+                <div class="p-3">
 
-                <p><strong>Description:</strong><br>{{ $w->description }}</p>
+                    <h5 class="fw-bold">{{ $w->type }}</h5>
 
-                <hr>
+                    <p class="mb-1"><strong>Quantity:</strong> {{ $w->quantity }} kg</p>
 
-                {{-- 📞 CALL BUTTON --}}
-                <a href="tel:{{ $w->mobile }}" class="btn btn-success w-100">
-                    📞 Call Seller
-                </a>
+                    <p class="text-muted small mb-2">
+                        📍 {{ $w->address }}
+                    </p>
+
+                    <p class="small">
+                        {{ \Illuminate\Support\Str::limit($w->description, 60) }}
+                    </p>
+
+                    <div class="d-flex justify-content-between mt-2 small text-muted">
+
+    {{-- DISTANCE --}}
+    <span class="distance"
+          data-lat="{{ $w->latitude }}"
+          data-lng="{{ $w->longitude }}">
+         calculating...
+    </span>
+
+    {{-- TIME --}}
+    <span>
+        {{ $w->created_at->diffForHumans() }}
+    </span>
+</div>
+
+{{-- STATUS BADGE --}}
+<div class="mt-2">
+    @if($w->status == 1)
+        <span class="badge bg-success">FREE</span>
+    @elseif($w->status == 2)
+        <span class="badge bg-warning">Requested</span>
+    @elseif($w->status == 3)
+        <span class="badge bg-danger">Sold</span>
+    @endif
+</div>
+
+                    {{-- CALL BUTTON --}}
+                    <a href="tel:{{ $w->mobile }}" 
+                       class="btn btn-success w-100 mt-2">
+                        📞 Call Seller
+                    </a>
+
+                </div>
 
             </div>
+
         </div>
+        @endforeach
+
     </div>
-
-@empty
-
-    <div class="col-12 text-center">
-        <p>No waste available right now</p>
-    </div>
-
-@endforelse
 
 </div>
 
 @endsection
+
+
+
+
+<script>
+    let userLat = null;
+    let userLng = null;
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+        userLat = position.coords.latitude;
+        userLng = position.coords.longitude;
+    });
+</script>
+
+
+<!-- input feilds for form....
+add price or negotible feild
+location catch using gps map to calculate far for each waste
+add title for sell waste -->
