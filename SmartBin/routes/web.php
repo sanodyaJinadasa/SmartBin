@@ -15,6 +15,24 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/marketplace', [WasteSaleController::class, 'marketplace'])->name('marketplace');
 Route::get('/marketplace', [WasteSaleController::class, 'marketplace'])->name('marketplace');
 
+
+
+
+
+Route::middleware(['auth'])->group(function () {
+
+
+        Route::get('/admin/dashboard', [adminController::class, 'dashboard'])->name('admin.dashboard');
+
+        Route::get('/admin/bins', [adminController::class, 'bins'])->name('admin.bins');
+
+        Route::post('/admin/bin/update/{id}', [adminController::class, 'updateStatus'])->name('admin.bin.update');
+
+
+});
+
+
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
@@ -24,14 +42,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/bins/create', [UserController::class, 'createBin'])->name('bins.create');
 
     Route::post('/bins/store', [UserController::class, 'storeBin'])->name('bins.store');
-});
 
-
-
-
-
-Route::middleware(['auth'])->group(function () {
-
+    
     Route::get('/waste', [WasteSaleController::class, 'index'])->name('waste.index');
 
     Route::get('/waste/create', [WasteSaleController::class, 'create'])->name('waste.create');
@@ -40,18 +52,3 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-
-
-Route::middleware(['auth'])->group(function () {
-
-    Route::middleware(['admin'])->group(function () {
-
-        Route::get('/admin/dashboard', [adminController::class, 'dashboard'])->name('admin.dashboard');
-
-        Route::get('/admin/bins', [adminController::class, 'bins'])->name('admin.bins');
-
-        Route::post('/admin/bin/update/{id}', [adminController::class, 'updateStatus'])->name('admin.bin.update');
-
-    });
-
-});

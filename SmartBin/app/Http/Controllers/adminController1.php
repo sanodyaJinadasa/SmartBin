@@ -7,9 +7,10 @@ use App\Models\Bin;
 use Illuminate\Support\Facades\Auth;
 
 
-class AdminController extends Controller
+
+class DriverController extends Controller
 {
-   
+
 public function dashboard()
 {
     $driverId = Auth::id();
