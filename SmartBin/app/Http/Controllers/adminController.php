@@ -12,22 +12,22 @@ class AdminController extends Controller
    
 public function dashboard()
 {
-    $driverId = Auth::id();
+    $adminId = Auth::id();
 
-    $assignedBins = Bin::where('driver_id', $driverId)->count();
+    $assignedBins = Bin::where('admin_id', $adminId)->count();
 
-    $fullBins = Bin::where('driver_id', $driverId)
+    $fullBins = Bin::where('admin_id', $adminId)
                    ->where('status', 3)
                    ->count();
 
-    return view('driver.dashboard', compact('assignedBins', 'fullBins'));
+    return view('admin.dashboard', compact('assignedBins', 'fullBins'));
 }
 
 public function bins()
 {
-    $bins = Bin::where('driver_id', Auth::id())->get();
+    $bins = Bin::where('admin_id', Auth::id())->get();
 
-    return view('driver.bins', compact('bins'));
+    return view('admin.bins', compact('bins'));
 }
 
 
