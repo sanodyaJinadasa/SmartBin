@@ -30,7 +30,7 @@
             </td>
 
             <td>
-                <form action="{{ route('driver.bin.update', $bin->id) }}" method="POST">
+                <form action="{{ route('admin.bin.update', $bin->id) }}" method="POST">
                     @csrf
 
                     <select name="status" class="form-select mb-2">

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DriverController;
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\WasteSaleController;
 
 Route::get('/', function () {
@@ -44,13 +44,13 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::middleware(['driver'])->group(function () {
+    Route::middleware(['admin'])->group(function () {
 
-        Route::get('/driver/dashboard', [DriverController::class, 'dashboard'])->name('driver.dashboard');
+        Route::get('/admin/dashboard', [adminController::class, 'dashboard'])->name('admin.dashboard');
 
-        Route::get('/driver/bins', [DriverController::class, 'bins'])->name('driver.bins');
+        Route::get('/admin/bins', [adminController::class, 'bins'])->name('admin.bins');
 
-        Route::post('/driver/bin/update/{id}', [DriverController::class, 'updateStatus'])->name('driver.bin.update');
+        Route::post('/admin/bin/update/{id}', [adminController::class, 'updateStatus'])->name('admin.bin.update');
 
     });
 

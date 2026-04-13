@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2>🚛 Driver Dashboard</h2>
+<h2>🚛 admin Dashboard</h2>
 
 <div class="row mt-4">
 
