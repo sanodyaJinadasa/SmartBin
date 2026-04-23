@@ -55,7 +55,6 @@
     </span>
 </div>
 
-{{-- STATUS BADGE --}}
 <div class="mt-2">
     @if($w->status == 1)
         <span class="badge bg-success">FREE</span>
@@ -66,7 +65,6 @@
     @endif
 </div>
 
-                    {{-- CALL BUTTON --}}
                     <a href="tel:{{ $w->mobile }}" 
                        class="btn btn-success w-100 mt-2">
                         📞 Call Seller
