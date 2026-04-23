@@ -4,7 +4,6 @@
 
 <div class="container">
 
-    {{-- 🔍 SEARCH BAR --}}
     <div class="d-flex align-items-center mb-4">
         <input type="text" class="form-control me-2" placeholder="🔍 Search for waste...">
         <button class="btn btn-outline-secondary">⚙️</button>
@@ -19,7 +18,6 @@
 
             <div class="card border-0 shadow-sm overflow-hidden">
 
-                {{-- IMAGE --}}
                 <div style="height:200px; overflow:hidden;">
                     @if($w->image)
                         <img src="{{ asset('storage/'.$w->image) }}" 
@@ -30,7 +28,6 @@
                     @endif
                 </div>
 
-                {{-- CONTENT --}}
                 <div class="p-3">
 
                     <h5 class="fw-bold">{{ $w->type }}</h5>
@@ -47,14 +44,12 @@
 
                     <div class="d-flex justify-content-between mt-2 small text-muted">
 
-    {{-- DISTANCE --}}
     <span class="distance"
           data-lat="{{ $w->latitude }}"
           data-lng="{{ $w->longitude }}">
          calculating...
     </span>
 
-    {{-- TIME --}}
     <span>
         {{ $w->created_at->diffForHumans() }}
     </span>
