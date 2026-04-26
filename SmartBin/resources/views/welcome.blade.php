@@ -2,7 +2,7 @@
 
 @section('content')
 
-<!-- <div class="text-center mt-5">
+<div class="text-center mt-5">
     <h1 class="fw-bold">🌱 Welcome to SmartBin</h1>
     <p class="mt-3 text-muted">
         Smart Waste Management System for Cleaner Cities 
@@ -26,7 +26,7 @@
         <a href="{{ route('register') }}" class="btn btn-warning btn-sm">Register</a>
     @endauth
 </div>
-</div> -->
+</div>
 
 <hr class="my-5">
 
