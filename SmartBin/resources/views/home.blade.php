@@ -73,5 +73,14 @@
                         You are logged in!
                     </div>
 
-                    
+                     <div class="sub-text">
+                        Welcome back! Everything is running smoothly.
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
