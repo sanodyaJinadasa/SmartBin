@@ -50,5 +50,28 @@
     }
 </style>
 
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card dashboard-card">
+                
+                <div class="dashboard-header text-center">
+                    🚀 Dashboard
+                </div>
 
+                <div class="dashboard-body">
+                    
+                    <div class="emoji">👋</div>
+
+                    @if (session('status'))
+                        <div class="alert alert-success status-alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <div class="welcome-text">
+                        You are logged in!
+                    </div>
+
+                    
 @endsection
