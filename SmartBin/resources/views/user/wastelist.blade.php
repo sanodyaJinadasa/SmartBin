@@ -1,4 +1,4 @@
-@extends('layouts.web')
+<!-- @extends('layouts.web')
 
 @section('content')
 
@@ -43,4 +43,4 @@
     </tbody>
 </table>
 
-@endsection
+@endsection -->
