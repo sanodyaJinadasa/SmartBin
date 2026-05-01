@@ -164,3 +164,16 @@
                     </td>
                 </tr>
                 @empty
+                 <tr>
+                    <td colspan="5" class="text-center no-data">
+                        No data found 😕
+                    </td>
+                </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+@endsection
