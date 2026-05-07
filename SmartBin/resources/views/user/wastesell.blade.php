@@ -1,7 +1,42 @@
 @extends('layouts.web')
 
 @section('content')
+<style>
+    .card {
+        border: none;
+        border-radius: 15px;
+        background-color: #ffffff;
+        max-width: 600px;
+        margin: 2rem auto;
+    }
 
+    h3 {
+        color: #2d5a27; /* Dark leafy green */
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    /* Form Labels */
+    label {
+        font-weight: 600;
+        color: #4a5568;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Input Fields */
+    .form-control {
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 10px 15px;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #28a745;
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    }
+</style>
 
 <div class="card shadow p-4">
     <h3>♻️ Sell Your Waste</h3>
