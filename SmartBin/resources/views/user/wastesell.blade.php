@@ -3,6 +3,9 @@
 @section('content')
 
 
+<div class="card shadow p-4">
+    <h3>♻️ Sell Your Waste</h3>
+
 {{-- ERROR --}}
     @if ($errors->any())
         <div class="alert alert-danger">
