@@ -36,6 +36,30 @@
         border-color: #28a745;
         box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
     }
+    /* Success Button Customization */
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+        padding: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 8px;
+        width: 100%;
+        margin-top: 10px;
+        transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+        transform: translateY(-1px);
+    }
+
+    /* Alert Styling */
+    .alert-danger {
+        border-radius: 10px;
+        font-size: 0.9rem;
+    }
 </style>
 
 <div class="card shadow p-4">
