@@ -1,6 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+<style>
+    /* resources/css/app.css */
+
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #4a5568;
+    color: white;
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #4a5568;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #2d3748;
+}
+
+
+</style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
