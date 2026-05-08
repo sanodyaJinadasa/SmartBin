@@ -35,6 +35,30 @@ body {
 }
 
 
+.container {
+        margin-top: 5rem;
+    }
+
+    .card {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .card-header {
+        background: #3490dc;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .form-control:focus {
+        border-color: #3490dc;
+        box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+    }
+
+    .btn-primary {
+        padding: 10px 30px;
+        font-weight: 600;
+    }
 </style>
 
 <div class="container">
